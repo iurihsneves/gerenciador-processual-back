@@ -1,5 +1,7 @@
 package com.iuri.pol.avaliacaotecnica.resources;
 
+import java.util.Optional;
+
 import com.iuri.pol.avaliacaotecnica.modelo.Usuario;
 import com.iuri.pol.avaliacaotecnica.repository.UsuarioRepository;
 
@@ -19,13 +21,23 @@ public class CriarUsuarioAdmin implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Usuario usuario = new Usuario();
-        usuario.setAdmin(true);
-        usuario.setEmail("admin@admin.com");
-        usuario.setPassword(encoder.encode("12345"));
-        usuario.setNomeCompleto("Admin");
-        System.out.println(usuario);
-        //repository.save(usuario);
+
+        if(repository.findByEmail("admin@admin.com").isEmpty()) {
+            System.out.println("Usuário admin não encontrado, iniciando procedimento de criação:");
+            System.out.println("Email: admin@admin.com");
+            System.out.println("Senha: '123456'");
+
+            Usuario usuario = new Usuario();
+            usuario.setEmail("admin@admin.com");
+            usuario.setPassword(encoder.encode("12345"));
+            usuario.setNomeCompleto("Admin");
+            System.out.println(usuario);
+            repository.save(usuario);
+        } else {
+            System.out.println("Usuário admin localizado - ignorando procedimento de criação.");
+        }
+
+        
         
     }
 

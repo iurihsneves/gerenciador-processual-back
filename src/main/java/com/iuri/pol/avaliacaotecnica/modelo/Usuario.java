@@ -33,8 +33,6 @@ public class Usuario{
     @Column(unique = true, nullable = false)
     private String email;
 
-    private boolean admin;
-
     public Usuario() {
 
     }
@@ -45,7 +43,6 @@ public class Usuario{
         this.password = password;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
-        
     }
 
 }

@@ -11,6 +11,6 @@ public interface ProcessoRepository extends JpaRepository<Processo, Integer> {
 
     public Optional<List<Processo>> findAllByNmReu(String nmReu);
 
-    public Optional<List<Processo>> findByNrProcesso(Long nrProcesso);
+    public Optional<List<Processo>> findByNrProcesso(long nrProcesso);
     
 }
