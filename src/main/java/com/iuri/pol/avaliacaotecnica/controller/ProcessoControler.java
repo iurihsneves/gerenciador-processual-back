@@ -14,17 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/processo")
+@RequestMapping("/processos")
 public class ProcessoControler {
 
     @Autowired
     ProcessoRepository processoRepository;
 
-    @GetMapping("/processos")
+    @GetMapping("/lista-processos")
     public List<Processo> listaProcessos() {
+        System.out.println(processoRepository.findAll());
         return processoRepository.findAll();
     }
     
@@ -42,10 +44,9 @@ public class ProcessoControler {
     public Processo salvaProcesso(@RequestBody Processo processo) {
         return processoRepository.save(processo);
     }
-
-    @DeleteMapping("/processo")
-    public void deletaProcesso(@RequestBody Processo processo) {
-        processoRepository.delete(processo);
+    @RequestMapping(value="/processo/{id}", method=RequestMethod.DELETE)
+    public void deletaProcesso(@PathVariable long id) {
+        processoRepository.deleteById(id);
     }
 
     @PutMapping("/processo")

@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 public class JWTAutenticarFilter extends UsernamePasswordAuthenticationFilter{
 
-    static final int EXPIRACAO_TOKEN = 900_000;
+    static final int EXPIRACAO_TOKEN = 1800_000;
 
     static final String SENHA_TOKEN = "7af37a13-3c5c-4f0a-aea3-405d72f72918";
 

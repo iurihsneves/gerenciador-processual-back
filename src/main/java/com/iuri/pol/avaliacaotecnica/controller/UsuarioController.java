@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     private final UsuarioRepository repository;
@@ -28,14 +28,13 @@ public class UsuarioController {
         this.encoder = encoder;
     }
 
-    @GetMapping("/listarUsuarios")
+    @GetMapping("/listar-usuarios")
     public ResponseEntity<List<Usuario>> listarUsuarios() {
         return ResponseEntity.ok(repository.findAll());
     }
 
     @PostMapping("/cadastrar-usuario")
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario){
-        usuario.setPassword(encoder.encode(usuario.getPassword()));
         return ResponseEntity.ok(repository.save(usuario));
     }
 

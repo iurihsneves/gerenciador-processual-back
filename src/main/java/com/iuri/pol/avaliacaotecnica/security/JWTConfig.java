@@ -36,7 +36,7 @@ public class JWTConfig extends WebSecurityConfigurerAdapter {
         http.cors();
         http.csrf().disable().authorizeRequests()
             .antMatchers(HttpMethod.POST, "/login").permitAll()
-            .antMatchers(HttpMethod.POST, "/api/usuario/cadastrar-usuario").permitAll()
+            .antMatchers(HttpMethod.POST, "/usuario/cadastrar-usuario").permitAll()
             .anyRequest().authenticated()
             .and()
             .addFilter(new JWTAutenticarFilter(authenticationManager()))

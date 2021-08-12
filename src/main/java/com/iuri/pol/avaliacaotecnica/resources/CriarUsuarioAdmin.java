@@ -25,7 +25,7 @@ public class CriarUsuarioAdmin implements CommandLineRunner {
         if(repository.findByEmail("admin@admin.com").isEmpty()) {
             System.out.println("Usuário admin não encontrado, iniciando procedimento de criação:");
             System.out.println("Email: admin@admin.com");
-            System.out.println("Senha: '123456'");
+            System.out.println("Senha: '12345'");
 
             Usuario usuario = new Usuario();
             usuario.setEmail("admin@admin.com");
