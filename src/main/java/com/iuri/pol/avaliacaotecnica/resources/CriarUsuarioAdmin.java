@@ -1,7 +1,5 @@
 package com.iuri.pol.avaliacaotecnica.resources;
 
-import java.util.Optional;
-
 import com.iuri.pol.avaliacaotecnica.modelo.Usuario;
 import com.iuri.pol.avaliacaotecnica.repository.UsuarioRepository;
 
