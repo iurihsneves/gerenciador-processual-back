@@ -9,8 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProcessoRepository extends JpaRepository<Processo, Long> {
 
-    public Optional<List<Processo>> findAllByNmReu(String nmReu);
-
     public Optional<List<Processo>> findByNrProcesso(long nrProcesso);
     
 }

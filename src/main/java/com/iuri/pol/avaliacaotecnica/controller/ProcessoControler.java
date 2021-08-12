@@ -34,11 +34,6 @@ public class ProcessoControler {
         return processoRepository.findByNrProcesso(nrProcesso);
     }
 
-    @GetMapping("/processo/{nmReu}")
-    public Optional<List<Processo>> findByNmReu(@PathVariable(value="nmReu") String nmReu) {
-        return processoRepository.findAllByNmReu(nmReu);
-    }
-
     @PostMapping("/processo")
     public Processo salvaProcesso(@RequestBody Processo processo) {
         return processoRepository.save(processo);

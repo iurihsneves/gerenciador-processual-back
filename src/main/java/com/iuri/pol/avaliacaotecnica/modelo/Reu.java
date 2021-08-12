@@ -1,33 +1,36 @@
 package com.iuri.pol.avaliacaotecnica.modelo;
 
-import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Column;
 
 import lombok.Data;
 
-
-@Entity
 @Data
-@Table(name="tb_processo")
-public class Processo implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@Entity
+@Table(name = "tb_reu")
+public class Reu{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
+    private String nomeCompleto;
+
+    private String telefone;
+
     private long nrProcesso;
 
-    private String obsProcesso;
+    public Reu(int id, String nomeCompleto, String telefone) {
 
-    private long idUsuario;
+        this.id = id;
+        this.nomeCompleto = nomeCompleto;
+        this.telefone = telefone;
+    }
 
 }
