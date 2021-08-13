@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface ReuRepository extends JpaRepository<Reu, Long>{
     
-    public void deleteByNrProcesso(long nrProcesso);
+    public void deleteByIdProcesso(long idProcesso);
 
-    public Optional<List<Reu>> findAllByNrProcesso(long nrProcesso);
+    public Optional<List<Reu>> findAllByIdProcesso(long idProcesso);
 
 }

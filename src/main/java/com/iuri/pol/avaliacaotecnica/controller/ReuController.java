@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.iuri.pol.avaliacaotecnica.modelo.Reu;
 import com.iuri.pol.avaliacaotecnica.repository.ReuRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/reu")
 public class ReuController {
 
-    private ReuRepository repository;
+    @Autowired
+    ReuRepository repository;
 
-    @GetMapping("/listar-reu/{nrProcesso}")
-    public ResponseEntity<Optional<List<Reu>>> listaReu(@PathVariable(value="nrProcesso") long nrProcesso) {
-        return ResponseEntity.ok(repository.findAllByNrProcesso(nrProcesso));
+    @GetMapping("/listar-reu/{idProcesso}")
+    public ResponseEntity<Optional<List<Reu>>> listaReu(@PathVariable(value="idProcesso") long idProcesso) {
+        return ResponseEntity.ok(repository.findAllByIdProcesso(idProcesso));
     }
 
     @PostMapping("/reu")
@@ -33,8 +35,9 @@ public class ReuController {
         return ResponseEntity.ok(repository.save(reu));
     }
 
+
     @RequestMapping(value="/excluir-reu/{id}", method=RequestMethod.DELETE)
-    public void excluiReu(@RequestParam long id) {
+    public void excluiReu(@PathVariable long id) {
         repository.deleteById(id);
     }
     

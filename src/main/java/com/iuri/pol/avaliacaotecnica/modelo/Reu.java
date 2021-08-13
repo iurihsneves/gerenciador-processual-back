@@ -22,15 +22,10 @@ public class Reu{
     @Column(nullable = false)
     private String nomeCompleto;
 
-    private String telefone;
+    @Column(nullable = false)
+    private long idProcesso;
 
-    private long nrProcesso;
-
-    public Reu(int id, String nomeCompleto, String telefone) {
-
-        this.id = id;
-        this.nomeCompleto = nomeCompleto;
-        this.telefone = telefone;
-    }
+    public Reu(){
+	}
 
 }
